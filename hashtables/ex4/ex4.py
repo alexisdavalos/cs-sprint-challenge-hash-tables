@@ -7,21 +7,21 @@ def has_negatives(a):
     # Loop through the input array
     for item in a:
         # check if absolute of item is not in dictionary
-        if int(math.fabs(item)) not in dictionary:
+        if item not in dictionary:
             # add the value to dictionary
-            dictionary[int(math.fabs(item))] = 1
+            dictionary[int(math.fabs(item))] = item
         else:
             # value exists, so increment count in dictionary
-            dictionary[int(math.fabs(item))] += 1
-            
+            dictionary[int(math.fabs(item))] += item
+    print(dictionary)
     # Loop through elements in dictionary
     for item in dictionary:
         # check the item count
-        if dictionary[item] > 1:
+        if dictionary[item] == 0:
             # add item with count greater than 1 to result list
             result.append(item)
     return result
 
 
 if __name__ == "__main__":
-    print(has_negatives([-1, -2, 1, 2, 3, 4, -4]))
+    print(has_negatives([-1, -2, 1, 1, 2, 3, 4, -4]))
